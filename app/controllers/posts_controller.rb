@@ -27,14 +27,7 @@ class PostsController < ApplicationController
       @post = Post.find(params[:id])
     end
     
-    private
-
-    def is_owner?
-      redirect_to root_path if Post.find(params[:id]).user != current_user
-    end
-    
-    
-    def update
+     def update
       @post = Post.find(params[:id])
       @post.update(post_params)
       if @post.valid?
@@ -51,7 +44,13 @@ class PostsController < ApplicationController
   end
     
     private
-    def post_params
-        params.require(:post).permit(:user_id , :photo , :description)
-    end
+
+      def is_owner?
+        redirect_to root_path if Post.find(params[:id]).user != current_user
+      end
+      
+    
+      def post_params
+          params.require(:post).permit(:user_id , :photo , :description)
+      end
 end
