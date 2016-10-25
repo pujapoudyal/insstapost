@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   devise_for :users
   resources :posts do
     resources :comments
+    resources :upvotes, only: :create
+    resources :downvotes, only: :create
       resources :users, only: :show
   end
   

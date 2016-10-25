@@ -2,6 +2,15 @@ class PostsController < ApplicationController
     before_action :authenticate_user!, only: [:new, :create]
     before_action :is_owner? , only: [:edit, :update, :destroy]
     
+    def upvote
+      
+    end
+    
+    
+    def downvote
+      
+    end
+    
     def index
       @posts = Post.all.order('created_at DESC')
     end
@@ -35,7 +44,7 @@ class PostsController < ApplicationController
       else
         render :edit, status: :unprocessable_entity
       end
-    end
+     end
     
   def destroy
     @post = Post.find(params[:id])
