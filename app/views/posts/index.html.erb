@@ -40,7 +40,14 @@
   <hr>
   
   <% if user_signed_in? %>
-    <%= simple_form_for Comment.new, url: post_comments_path(post), method: :post do |f| %>
+
+  <% else %>
+    <i class="fa fa-heart-o" aria-hidden="true"></i><%= pluralize post.get_likes.size, "like" %>
+  <% end %>
+  
+  
+  <% if user_signed_in? %>
+    <%= simple_form_for Comment.new, url: post_comments_path(post), method: :post  do |f| %>
       <%= f.input :text, label: 'Comment', placeholder: 'Add a comment....' %>
       <%= f.submit 'Post', class: 'btn btn-primary btn-block' %>
     <% end %>
