@@ -4,7 +4,7 @@ Rails.application.routes.draw do
     resources :comments
     resources :upvotes, only: :create
     resources :downvotes, only: :create
-      resources :users, only: :show
+    resources :users, only: :show
   end
   
   # The priority is based upon order of creation: first created -> highest priority.

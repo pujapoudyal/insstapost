@@ -17,24 +17,24 @@
             </div>
             
             
-      <span class="count"><%= @user.posts.count %></span> posts
+            <span class="count"><%= @user.posts.count %></span> posts
+
+        </div>
+
+      </div>
 
     </div>
 
-  </div>
-
-</div>
-
 <div class="prof_post_box">
-     <div class="row">
-         <% @user.posts.each do |post| %>
+    <div class="row">
+        <% @user.posts.each do |post| %>
          
-         <div class="col-xs-6">
-          <%= image_tag post.photo, class: 'prof_show' %>
-        </div>
+             <div class="col-xs-6">
+                <%= image_tag post.photo, class: 'prof_show' %>
+            </div>
         <% end %>
 
-  </div>
+    </div>
 </div>
 
 
